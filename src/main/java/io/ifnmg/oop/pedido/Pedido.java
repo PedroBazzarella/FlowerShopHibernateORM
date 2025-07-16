@@ -5,14 +5,18 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.PostLoad;
 import jakarta.persistence.Transient;
+
+import java.io.Serial;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+@Entity
 public class Pedido
         extends ProjectEntity
         implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     @Column(nullable = false)
@@ -60,8 +64,7 @@ public class Pedido
     }
 
     @PostLoad
-    private BigDecimal calcularValorTotal(){
+    private void calcularValorTotal(){
         valorPedido = BigDecimal.valueOf(1200);
-        return valorPedido;
     }
 }
