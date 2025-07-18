@@ -4,6 +4,7 @@
  */
 package io.ifnmg.oop.embrulho;
 
+import io.ifnmg.oop.repository.ProjectEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,65 +12,87 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Objects;
 
 /**
  *
  * @author Matheus Antunes <maf6@aluno.ifnmg.edu.br>
  */
 @Entity
-public class Embrulho implements Serializable {
+public class Embrulho
+        extends ProjectEntity
+        implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
-    @Column (nullable = false, length = 100)
+    @Column(nullable = false, length = 100)
     private String nome;
-    
-    @Column (nullable = false)
+
+    @Column(nullable = false)
     private BigDecimal valorBase;
-    
+
     @Column(nullable = false)
     private Integer estoque;
-    
-    
-    
+
     //<editor-fold defaultstate="collapsed" desc="Getters/Setters">
-        public Long getId() {
-        return id;
+    public String getNome() {
+        return nome;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
+
+    public BigDecimal getValorBase() {
+        return valorBase;
+    }
+
+    public void setValorBase(BigDecimal valorBase) {
+        this.valorBase = valorBase;
+    }
+
+    public Integer getEstoque() {
+        return estoque;
+    }
+
+    public void setEstoque(Integer estoque) {
+        this.estoque = estoque;
+    }
+
 //</editor-fold>
-
     //<editor-fold defaultstate="collapsed" desc="hashCode/equals/toString">
     @Override
     public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        int hash = 7;
+        hash = 97 * hash + Objects.hashCode(this.nome);
+        hash = 97 * hash + Objects.hashCode(this.valorBase);
+        hash = 97 * hash + Objects.hashCode(this.estoque);
         return hash;
     }
 
     @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Embrulho)) {
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
             return false;
         }
-        Embrulho other = (Embrulho) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if (getClass() != obj.getClass()) {
             return false;
         }
-        return true;
+        return hashCode() == obj.hashCode();
     }
-
+    
     @Override
     public String toString() {
-        return "io.ifnmg.oop.embrulho.Embrulho[ id=" + id + " ]";
+        return "Embrulho{" 
+                + "nome=" + nome 
+                + ", valorBase=" + valorBase 
+                + ", estoque=" + estoque 
+                + '}';
     }
+
 //</editor-fold>
     
 }
