@@ -4,11 +4,13 @@
  */
 package io.ifnmg.oop.embrulho;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 /**
  *
@@ -22,6 +24,17 @@ public class Embrulho implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column (nullable = false, length = 100)
+    private String nome;
+    
+    @Column (nullable = false)
+    private BigDecimal valorBase;
+    
+    @Column(nullable = false)
+    private Integer estoque;
+    
+    
+    
     //<editor-fold defaultstate="collapsed" desc="Getters/Setters">
         public Long getId() {
         return id;
