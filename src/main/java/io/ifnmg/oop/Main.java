@@ -1,8 +1,9 @@
 package io.ifnmg.oop;
 
-import io.ifnmg.oop.endereco.Endereco;
-import io.ifnmg.oop.endereco.EnderecoRepository;
+import io.ifnmg.oop.embrulho.*;
+import io.ifnmg.oop.endereco.*;
 import io.ifnmg.oop.pedido.*;
+import java.math.BigDecimal;
 
 import java.time.LocalDate;
 
@@ -22,8 +23,16 @@ public class Main {
         p1.setEntregue(false);
         p1.setRetirada(true);
         pedidoRepository.saveOrUpdate(p1);
+        
+        EmbrulhoRepository embrulhoRepository = new EmbrulhoRepository();
+        Embrulho em1 = new Embrulho();
+        em1.setNome("Verde com bolinhas");
+        em1.setValorBase(BigDecimal.valueOf(10.5));
+        em1.setEstoque(20);
+        embrulhoRepository.saveOrUpdate(em1);
 
         System.out.println(e1.getId());
         System.out.println(p1.getId());
+        System.out.println(em1.getId());
     }
 }
