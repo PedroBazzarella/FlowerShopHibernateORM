@@ -40,7 +40,11 @@ public class Embrulho
     }
 
     public void setNome(String nome) {
+        if (nome.length() > 100) {
+            throw new IllegalArgumentException("Nome deve ter ate 100 caracteres");
+        }
         this.nome = nome;
+
     }
 
     public BigDecimal getValorBase() {
@@ -83,16 +87,15 @@ public class Embrulho
         }
         return hashCode() == obj.hashCode();
     }
-    
+
     @Override
     public String toString() {
-        return "Embrulho{" 
-                + "nome=" + nome 
-                + ", valorBase=" + valorBase 
-                + ", estoque=" + estoque 
+        return "Embrulho{"
+                + "nome=" + nome
+                + ", valorBase=" + valorBase
+                + ", estoque=" + estoque
                 + '}';
     }
 
 //</editor-fold>
-    
 }
