@@ -7,6 +7,7 @@
     <class>io.ifnmg.oop.embrulho.Embrulho</class>
     <class>io.ifnmg.oop.cliente.Cliente</class>
     <class>io.ifnmg.oop.buque.Buque</class>
+      <class>io.ifnmg.oop.tamanhoBuque.TamanhoBuque</class>
     <class>io.ifnmg.oop.flor.Flor</class>
     <class>io.ifnmg.oop.funcionario.Funcionario</class>
 
