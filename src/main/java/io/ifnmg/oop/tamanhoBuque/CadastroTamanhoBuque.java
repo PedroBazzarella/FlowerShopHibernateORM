@@ -113,7 +113,6 @@ public class CadastroTamanhoBuque extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        // TODO add your handling code here:
         try{
             TamanhoBuque tmb1 = new TamanhoBuque();
              tmb1.setMaxTipoFlores(txtMaxTipoFlores.getText());
