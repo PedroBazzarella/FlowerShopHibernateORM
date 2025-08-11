@@ -6,6 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.PostLoad;
 import jakarta.persistence.Transient;
 
+import javax.swing.*;
 import java.io.Serial;
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -31,48 +32,93 @@ public class Endereco
     private String cidade;
 
     public Endereco() {}
-    public Endereco(String rua, Integer numero, String complemento, String bairro, String cidade) {
-        this.rua = rua;
-        this.numero = numero;
-        this.complemento = complemento;
-        this.bairro = bairro;
-        this.cidade = cidade;
+    public Endereco(String rua, String numero, String complemento, String bairro, String cidade) {
+        this.setRua(rua);
+        this.setNumero(numero);
+        this.setComplemento(complemento);
+        this.setBairro(bairro);
+        this.setCidade(cidade);
     }
 
     //Getters/Setters
-    void setRua(String rua) {
+    public void setRua(String rua) {
+
+        // Não pode ser null ou string vazia
+        if (rua == null || rua.isBlank()) {
+            throw new IllegalArgumentException("O campo rua não pode estar em branco.");
+        }
+
+        // Limite de tamanho (50 caracteres)
+        if (rua.length() > 50) {
+            throw new IllegalArgumentException("O nome da rua não pode exceder 50 caracteres.");
+        }
+
         this.rua = rua;
     }
-    String getRua() {
-        return rua;
+    public void setNumero(String numero) {
+        // Não pode ser null
+        if (numero == null || rua.isBlank()) {
+            throw new IllegalArgumentException("O campo número não pode estar em branco.");
+        }
+
+        // Percorre cada caractere da string.
+        for (char c : numero.toCharArray()) {
+            // Se encontrarmos qualquer caractere que não seja um dígito, lança exceção
+            if (!Character.isDigit(c)) {
+                throw new IllegalArgumentException("O campo número não deve conter letras ou símbolos.");
+            }
+        }
+
+        int num = Integer.parseInt(numero);
+
+//        // Deve ser um número positivo -> já é tratado no loop anterior
+//        if (num <= 0) {
+//            throw new IllegalArgumentException("O número deve ser um valor positivo.");
+//        }
+
+        this.numero = num;
     }
 
-    void setNumero(Integer numero) {
-        this.numero = numero;
-    }
-    Integer getNumero() {
-        return numero;
-    }
+    public void setComplemento(String complemento) {
+        // Limite de tamanho (50 caracteres)
+        if (complemento.length() > 50) {
+            throw new IllegalArgumentException("O complemento não pode exceder 50 caracteres.");
+        }
 
-    void setComplemento(String complemento) {
         this.complemento = complemento;
     }
-    String getComplemento() {
-        return complemento;
-    }
 
-    void setBairro(String bairro) {
+    public void setBairro(String bairro) {
+        // Não pode ser null
+        if (bairro == null || bairro.isBlank()) {
+            throw new IllegalArgumentException("O campo bairro não pode estar em branco.");
+        }
+        // Limite de tamanho (50 caracteres)
+        if (bairro.length() > 50) {
+            throw new IllegalArgumentException("O bairro não pode exceder 50 caracteres.");
+        }
+
         this.bairro = bairro;
     }
-    String getBairro() {
-        return bairro;
-    }
 
-    void setCidade(String cidade) {
+    public void setCidade(String cidade) {
+        // Não pode ser null
+        if (cidade == null || cidade.isBlank()) {
+            throw new IllegalArgumentException("A cidade não pode estar em branco.");
+        }
+        // Limite de tamanho (50 caracteres)
+        if (cidade.length() > 50) {
+            throw new IllegalArgumentException("A cidade não pode exceder 50 caracteres.");
+        }
+
         this.cidade = cidade;
     }
-    String getCidade() {
-        return cidade;
-    }
+
+    public String getRua() {return this.rua;}
+    public Integer getNumero() {return this.numero;}
+    public String getComplemento() {return this.complemento;}
+    public String getBairro() {return this.bairro;}
+    public String getCidade() {return this.cidade;}
+
 
 }

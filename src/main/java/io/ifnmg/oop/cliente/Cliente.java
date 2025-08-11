@@ -4,6 +4,7 @@ import io.ifnmg.oop.repository.ProjectEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 
+import javax.swing.*;
 import java.io.Serial;
 import java.io.Serializable;
 
@@ -30,6 +31,15 @@ public class Cliente
     }
 
     public void setNome(String nome) {
+        // Não pode ser null
+        if (nome == null || nome.isBlank()) {
+            throw new IllegalArgumentException("O nome não pode estar em branco.");
+        }
+        // Limite de tamanho (50 caracteres)
+        if (nome.length() > 50) {
+            throw new IllegalArgumentException("O nome não pode exceder 50 caracteres.");
+        }
+
         this.nome = nome;
     }
 
@@ -47,7 +57,9 @@ public class Cliente
             this.telefone = telefone;
         }
         else {
-            this.telefone = "";
+            throw new IllegalArgumentException("Telefone não compatível.");
         }
     }
 }
+
+
