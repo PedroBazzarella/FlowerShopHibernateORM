@@ -10,21 +10,9 @@ import io.ifnmg.oop.repository.Repository;
  * @author Matheus Antunes <maf6@aluno.ifnmg.edu.br>
  */
 public class EmbrulhoRepository 
-        extends Repository<Embrulho>{
+        extends Repository<Embrulho> {
 
-    @Override
-    public String getJpqlFindAll() {
-        return "SELECT a FROM Embrulho a";
+    public EmbrulhoRepository(){
+        super();
     }
-
-    @Override
-    public String getJpqlFindById() {
-        return "SELECT a FROM Embrulho a WHERE a.id = :id";
-    }
-
-    @Override
-    public String getJpqlDeleteById() {
-        return "DELETE FROM Embrulho a WHERE a.id = :id";
-    }
-
 }
