@@ -34,6 +34,16 @@ public class Embrulho
     @Column(nullable = false)
     private Integer estoque;
 
+    public Embrulho() {
+    }
+
+    
+    public Embrulho(String nome, BigDecimal valorBase, Integer estoque) {
+        this.nome = nome;
+        this.valorBase = valorBase;
+        this.estoque = estoque;
+    }
+    
     //<editor-fold defaultstate="collapsed" desc="Getters/Setters">
     public String getNome() {
         return nome;
