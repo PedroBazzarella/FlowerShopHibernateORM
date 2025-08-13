@@ -120,5 +120,14 @@ public class Endereco
     public String getBairro() {return this.bairro;}
     public String getCidade() {return this.cidade;}
 
-
+    @Override
+    public String toString() {
+        return "Endereco{" +
+                "rua='" + rua + '\'' +
+                ", numero=" + numero +
+                ", complemento='" + complemento + '\'' +
+                ", bairro='" + bairro + '\'' +
+                ", cidade='" + cidade + '\'' +
+                '}';
+    }
 }

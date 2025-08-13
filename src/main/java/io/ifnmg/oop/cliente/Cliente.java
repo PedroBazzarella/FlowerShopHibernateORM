@@ -60,6 +60,14 @@ public class Cliente
             throw new IllegalArgumentException("Telefone não compatível.");
         }
     }
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "nome='" + nome + '\'' +
+                ", telefone='" + telefone + '\'' +
+                '}';
+    }
 }
 
 

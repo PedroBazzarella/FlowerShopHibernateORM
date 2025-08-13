@@ -37,4 +37,12 @@ public class Flor
     public void setEstoque(Integer estoque) {
         this.estoque = estoque;
     }
+
+    @Override
+    public String toString() {
+        return "Flor{" +
+                "especie='" + especie + '\'' +
+                ", estoque=" + estoque +
+                '}';
+    }
 }
