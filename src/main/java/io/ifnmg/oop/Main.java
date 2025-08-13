@@ -43,9 +43,9 @@ public class Main {
             Um dado mantido, outro apagado após o salvamento.
          */
         EnderecoRepository enderecoRepository = new EnderecoRepository();
-        Endereco e1 = new Endereco("R. Incluida", 200, " ", "Bairro Classico", "Montes Claros");
+        Endereco e1 = new Endereco("R. Incluida", "200", " ", "Bairro Classico", "Montes Claros");
         enderecoRepository.saveOrUpdate(e1);
-        Endereco e2 = new Endereco("R. Nao Incluida", 404, " ", "Bairro Talqual", "Montes Claros");
+        Endereco e2 = new Endereco("R. Nao Incluida", "404", " ", "Bairro Talqual", "Montes Claros");
         enderecoRepository.saveOrUpdate(e2);
         enderecoRepository.delete(e2);
 
