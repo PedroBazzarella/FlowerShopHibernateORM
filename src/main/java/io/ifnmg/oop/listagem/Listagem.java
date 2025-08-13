@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package io.ifnmg.oop;
+package io.ifnmg.oop.listagem;
 
 import io.ifnmg.oop.buque.Buque;
 import io.ifnmg.oop.buque.BuqueRepository;
@@ -151,21 +151,21 @@ public class Listagem extends javax.swing.JFrame {
             // Percorre cada objeto que foi selecionado
             for (Object item : itensSelecionados) {
                 if (item instanceof Endereco) {
-                    new EnderecoRepository().delete((Endereco) item);
+                    new EnderecoRepository().moveToTrash((Endereco) item);
                 } else if (item instanceof Cliente) {
-                    new ClienteRepository().delete((Cliente) item);
+                    new ClienteRepository().moveToTrash((Cliente) item);
                 } else if (item instanceof Buque) {
-                    new BuqueRepository().delete((Buque) item);
+                    new BuqueRepository().moveToTrash((Buque) item);
                 }else if (item instanceof Embrulho) {
-                    new EmbrulhoRepository().delete((Embrulho) item);
+                    new EmbrulhoRepository().moveToTrash((Embrulho) item);
                 }else if (item instanceof Funcionario) {
-                    new FuncionarioRepository().delete((Funcionario) item);
+                    new FuncionarioRepository().moveToTrash((Funcionario) item);
                 }else if (item instanceof TamanhoBuque) {
-                    new TamanhoBuqueRepository().delete((TamanhoBuque) item);
+                    new TamanhoBuqueRepository().moveToTrash((TamanhoBuque) item);
                 }else if (item instanceof Flor) {
-                    new FlorRepository().delete((Flor) item);
+                    new FlorRepository().moveToTrash((Flor) item);
                 }else if (item instanceof Pedido) {
-                    new PedidoRepository().delete((Pedido) item);
+                    new PedidoRepository().moveToTrash((Pedido) item);
                 }
             }
 

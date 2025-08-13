@@ -42,7 +42,6 @@ public class Funcionario
 
     @Column(nullable = false)
     private BigDecimal salarioBase;
-
     //<editor-fold defaultstate="collapsed" desc="Getters/Setters">
     public String getNome() {
         return nome;

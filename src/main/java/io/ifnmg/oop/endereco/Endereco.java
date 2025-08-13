@@ -30,7 +30,6 @@ public class Endereco
     private String bairro;
     @Column(length = 50, nullable = false)
     private String cidade;
-
     public Endereco() {}
     public Endereco(String rua, String numero, String complemento, String bairro, String cidade) {
         this.setRua(rua);

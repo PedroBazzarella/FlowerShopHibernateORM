@@ -18,7 +18,6 @@ public class Flor
     @Column(nullable = false)
     private String especie;
 
-
     @Column(nullable = false)
     private Integer estoque;
 
