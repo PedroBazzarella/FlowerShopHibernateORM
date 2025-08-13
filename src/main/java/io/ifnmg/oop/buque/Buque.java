@@ -36,4 +36,12 @@ public class Buque
     public void setRecado(String recado) {
         this.recado = recado;
     }
+
+    @Override
+    public String toString() {
+        return "Buque{" +
+                "numTipoFlores=" + numTipoFlores +
+                ", recado='" + recado + '\'' +
+                '}';
+    }
 }

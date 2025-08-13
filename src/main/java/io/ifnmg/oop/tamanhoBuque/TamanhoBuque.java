@@ -74,4 +74,11 @@ public class TamanhoBuque
         return maxTipoFlores;
     }
 
+    @Override
+    public String toString() {
+        return "TamanhoBuque{" +
+                "numFlores=" + numFlores +
+                ", maxTipoFlores=" + maxTipoFlores +
+                '}';
+    }
 }

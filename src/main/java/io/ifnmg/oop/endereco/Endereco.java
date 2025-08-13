@@ -30,7 +30,6 @@ public class Endereco
     private String bairro;
     @Column(length = 50, nullable = false)
     private String cidade;
-
     public Endereco() {}
     public Endereco(String rua, String numero, String complemento, String bairro, String cidade) {
         this.setRua(rua);
@@ -120,5 +119,14 @@ public class Endereco
     public String getBairro() {return this.bairro;}
     public String getCidade() {return this.cidade;}
 
-
+    @Override
+    public String toString() {
+        return "Endereco{" +
+                "rua='" + rua + '\'' +
+                ", numero=" + numero +
+                ", complemento='" + complemento + '\'' +
+                ", bairro='" + bairro + '\'' +
+                ", cidade='" + cidade + '\'' +
+                '}';
+    }
 }

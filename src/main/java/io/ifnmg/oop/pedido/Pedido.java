@@ -70,5 +70,15 @@ public class Pedido
     private void calcularValorTotal(){
         valorPedido = BigDecimal.valueOf(1200);
     }
+
+    @Override
+    public String toString() {
+        return "Pedido{" +
+                "retirada=" + retirada +
+                ", dataEntrega=" + dataEntrega +
+                ", entregue=" + entregue +
+                ", valorPedido=" + valorPedido +
+                '}';
+    }
 }
 

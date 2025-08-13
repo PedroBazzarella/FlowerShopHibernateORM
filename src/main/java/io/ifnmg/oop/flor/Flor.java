@@ -18,7 +18,6 @@ public class Flor
     @Column(nullable = false)
     private String especie;
 
-
     @Column(nullable = false)
     private Integer estoque;
 
@@ -36,5 +35,13 @@ public class Flor
 
     public void setEstoque(Integer estoque) {
         this.estoque = estoque;
+    }
+
+    @Override
+    public String toString() {
+        return "Flor{" +
+                "especie='" + especie + '\'' +
+                ", estoque=" + estoque +
+                '}';
     }
 }
