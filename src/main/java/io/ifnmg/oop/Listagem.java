@@ -124,7 +124,6 @@ public class Listagem extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void comboxEntidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboxEntidadeActionPerformed
-        // TODO add your handling code here:
         atualizarLista();
     }//GEN-LAST:event_comboxEntidadeActionPerformed
 
