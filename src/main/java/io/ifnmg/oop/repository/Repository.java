@@ -265,7 +265,7 @@ public abstract class Repository<T extends ProjectEntity> implements IRepository
                 tx.begin();
                 Query query = em.createQuery(
                         "DELETE FROM "+entityClass.getSimpleName()+
-                                " e WHERE e.id = :id");
+                                " e WHERE e.id = :id AND e.inTrash = true");
                 query.setParameter("id", id);
                 int deletions = query.executeUpdate();
 
@@ -290,7 +290,7 @@ public abstract class Repository<T extends ProjectEntity> implements IRepository
                 tx.begin();
                 Query query = em.createQuery(
                         "DELETE FROM "+entityClass.getSimpleName()+
-                                " e WHERE e.id = :id");
+                                " e WHERE e.id = :id AND e.inTrash = true");
                 query.setParameter("id", id);
                 int deletions = query.executeUpdate();
 
