@@ -254,4 +254,55 @@ public abstract class Repository<T extends ProjectEntity> implements IRepository
             return true;
         }
     }
+
+    @Override
+    public boolean deleteFromTrash(T e) {
+        Long id = e.getId();
+        try (EntityManager em = DataSourceFactory.getEntityManager()) {
+            EntityTransaction tx = em.getTransaction();
+
+            try {
+                tx.begin();
+                Query query = em.createQuery(
+                        "DELETE FROM "+entityClass.getSimpleName()+
+                                " e WHERE e.id = :id");
+                query.setParameter("id", id);
+                int deletions = query.executeUpdate();
+
+                tx.commit();
+                return deletions > 0;
+            } catch (Exception ex) {
+                if (tx != null && tx.isActive()) {
+                    tx.rollback();
+                    throw ex;
+                }
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public boolean deleteFromTrashId(Long id) {
+        try (EntityManager em = DataSourceFactory.getEntityManager()) {
+            EntityTransaction tx = em.getTransaction();
+
+            try {
+                tx.begin();
+                Query query = em.createQuery(
+                        "DELETE FROM "+entityClass.getSimpleName()+
+                                " e WHERE e.id = :id");
+                query.setParameter("id", id);
+                int deletions = query.executeUpdate();
+
+                tx.commit();
+                return deletions > 0;
+            } catch (Exception ex) {
+                if (tx != null && tx.isActive()) {
+                    tx.rollback();
+                    throw ex;
+                }
+            }
+        }
+        return false;
+    }
 }

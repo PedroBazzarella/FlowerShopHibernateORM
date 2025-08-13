@@ -29,6 +29,12 @@ public class Funcionario
         extends ProjectEntity
         implements Serializable {
 
+    public enum Categoria {
+        ATENDENTE,
+        ENTREGADOR,
+        MONTADOR
+    }
+
     private static final long serialVersionUID = 1L;
 
     @Column(nullable = false, length = 100)
@@ -42,6 +48,10 @@ public class Funcionario
 
     @Column(nullable = false)
     private BigDecimal salarioBase;
+
+    @Column(nullable = false)
+    private Categoria funcao;
+
     //<editor-fold defaultstate="collapsed" desc="Getters/Setters">
     public String getNome() {
         return nome;
@@ -125,8 +135,16 @@ public class Funcionario
     public void setSalarioBase(BigDecimal salarioBase) {
         this.salarioBase = salarioBase;
     }
-    //</editor-fold>
 
+    public Categoria getFuncao() {
+        return funcao;
+    }
+
+    public void setFuncao(Categoria funcao) {
+        this.funcao = funcao;
+    }
+
+    //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="hashCode/equals/toString">
     @Override
     public int hashCode() {
@@ -135,6 +153,7 @@ public class Funcionario
         hash = 59 * hash + Objects.hashCode(this.cpf);
         hash = 59 * hash + Objects.hashCode(this.telefone);
         hash = 59 * hash + Objects.hashCode(this.salarioBase);
+        hash = 59 * hash + Objects.hashCode(this.funcao);
         return hash;
     }
 
@@ -151,10 +170,12 @@ public class Funcionario
 
     @Override
     public String toString() {
-        return "Funcionario{" + "nome=" + nome + ", cpf=" + cpf + ", "
-                + "telefone=" + telefone + ", salarioBase=" + salarioBase + '}';
+        return "Funcionario{" + "nome=" + nome
+                + ", cpf=" + cpf
+                + ", telefone=" + telefone
+                + ", salarioBase=" + salarioBase
+                + ", funcao=" + funcao + '}';
     }
+
     //</editor-fold>
 }
-
-
